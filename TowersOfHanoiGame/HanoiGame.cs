@@ -106,8 +106,15 @@ namespace TowersOfHanoiGame
                 {
                     if (to > 0 && to <= 3)
                     {
-                        result = 3;
-                        break;
+                        if (to != from)
+                        {
+                            result = 3;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("搬你馬");
+                        }
                     }
                     else
                     {
