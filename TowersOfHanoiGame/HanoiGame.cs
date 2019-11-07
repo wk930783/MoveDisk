@@ -17,9 +17,33 @@ namespace TowersOfHanoiGame
         public void Setup()
         {
 
+            bool conversion;
+            string input;
             //輸入高度
-            Console.WriteLine("請輸入河內塔的高度：");
-            string input = Console.ReadLine();
+
+            while (true)
+            {
+                Console.WriteLine("請輸入河內塔的高度：");
+                input = Console.ReadLine();
+                conversion = int.TryParse(input, out disk);
+                if (conversion)
+                {
+                    if (disk > 0 && disk <= 10)
+                    {
+                        result = 1;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("請輸入大於0且小於等於10的數值");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("請輸入數字");
+                }
+            }
+            /*
             try
             {
                 
@@ -32,10 +56,33 @@ namespace TowersOfHanoiGame
                 Console.WriteLine(exp.ToString());
                 Console.ReadKey();
                 throw;
-            }
+            }*/
 
-            Console.WriteLine("起始地的柱子:(1,2,3)");
-            input = Console.ReadLine();
+            while (true)
+            {
+
+                Console.WriteLine("起始地的柱子:(1,2,3)");
+
+                input = Console.ReadLine();
+                conversion = int.TryParse(input, out from);
+                if (conversion)
+                {
+                    if (from > 0 && from <= 3)
+                    {
+                        result = 2;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("請輸入大於0小於等於3的數值");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("請輸入數字");
+                }
+            }
+            /*
             try
             {
                 from = int.Parse(input);
@@ -47,10 +94,32 @@ namespace TowersOfHanoiGame
                 Console.WriteLine(exp.ToString());
                 Console.ReadKey();
                 throw;
-            }
+            }*/
 
-            Console.WriteLine("目的地的柱子：(1,2,3)");
-            input = Console.ReadLine();
+
+            while (true)
+            {
+                Console.WriteLine("目的地的柱子：(1,2,3)");
+                input = Console.ReadLine();
+                conversion = int.TryParse(input, out to);
+                if (conversion)
+                {
+                    if (to > 0 && to <= 3)
+                    {
+                        result = 3;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("請輸入大於0小於等於3的數值");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("請輸入數字");
+                }
+            }
+            /*
             try
             {
                 to = int.Parse(input);
@@ -62,9 +131,9 @@ namespace TowersOfHanoiGame
                 Console.WriteLine(exp.ToString());
                 Console.ReadKey();
                 throw;
-            }
+            }*/
 
-        
+
 
             #region // 取得 第三柱子
             /* 例如 輸入 1 3  得到  2
@@ -92,7 +161,7 @@ namespace TowersOfHanoiGame
             Console.ReadKey();
         }
 
-                //參考演算法: http://notepad.yehyeh.net/Content/DS/CH02/4.php
+        //參考演算法: http://notepad.yehyeh.net/Content/DS/CH02/4.php
         //參考演算法: http://program-lover.blogspot.com/2008/06/tower-of-hanoi.html
         public static void Hanoi(int Disk, int Src, int Dest, int Aux)
         {
