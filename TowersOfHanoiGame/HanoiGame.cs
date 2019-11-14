@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace TowersOfHanoiGame
 {
-    class HanoiGame
+    class HanoiGame : IGame
     {
 
-        float result = -1;
+
+
+    float result = -1;
         int disk = -1;
         int from = -1;
         int to = -1;
         int aux = -1;
         public void Setup()
         {
-
             bool conversion;
             string input;
             //輸入高度
